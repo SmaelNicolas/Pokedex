@@ -4118,3 +4118,13 @@ node_modules/yargs-parser/build/lib/tokenize-arg-string.js
 node_modules/yargs-parser/build/lib/yargs-parser-types.js
 node_modules/yargs-parser/build/lib/yargs-parser.js
 styles/scss/style.scss
+styles/font/Pokemon Hollow.ttf
+styles/font/Pokemon Solid.ttf
+index.html
+styles/font/PokemonHollow.ttf
+styles/font/PokemonSolid.ttf
+.gitignore
+styles/scss/layouts/_main.scss
+styles/scss/core/_variables.scss
+styles/scss/core/_resets.scss
+styles/scss/components/_fonts.scss
