@@ -4128,3 +4128,4 @@ styles/scss/layouts/_main.scss
 styles/scss/core/_variables.scss
 styles/scss/core/_resets.scss
 styles/scss/components/_fonts.scss
+styles/scss/layouts/_pokeInfo.scss
