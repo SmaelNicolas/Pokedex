@@ -24,11 +24,11 @@ body {
     font-family: PokemonSolid;
     color: #ffcb05;
     font-size: 33px;
-    -webkit-text-stroke: 0.5px #2a75bb; }
+    -webkit-text-stroke: 0.8px #2a75bb; }
     .main_title_link {
       color: #ffcb05;
       text-decoration: none;
-      -webkit-text-stroke: 0.5px #2a75bb;
+      -webkit-text-stroke: 0.8px #2a75bb;
       cursor: pointer; }
   .main_info {
     width: 100%;
