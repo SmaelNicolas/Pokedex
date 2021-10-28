@@ -1,4 +1,6 @@
-const URLPOKEMON = "https://pokeapi.co/api/v2/pokemon/1";
+let URLPOKEMON;
+
+let value;
 
 let pokeName;
 let pokeNumber;
@@ -18,44 +20,60 @@ let pokeSpeed;
 
 // console.log(URLPOKEMON);
 
-$.get(URLPOKEMON, function (data) {
-  console.log(data);
+const newInput = () => {
+  $("#main_input").change(() => {
+    value = $("#main_input").val().toLowerCase();
+    if (value != "") {
+      $("#poke_info").show();
+      app(value);
+    } else {
+      $("#poke_info").hide();
+    }
+  });
+};
 
-  pokeName = data.species.name;
-  pokeNumber = data.id;
-  pokeImage = data.sprites.front_default;
-  pokeShiny = data.sprites.front_shiny;
-  pokeType = data.types[0].type.name;
-  if (data.types.length == 2) {
-    pokeTypeSecond = data.types[1].type.name;
-  }
-  pokeAbility = data.abilities[0].ability.name;
-  if (data.abilities.length == 2) {
-    pokeAbilitySecond = data.abilities[1].ability.name;
-  }
-  pokeWeigth = data.weight;
-  pokeHp = data.stats[0].base_stat;
-  pokeAttack = data.stats[1].base_stat;
-  pokeDefense = data.stats[2].base_stat;
-  pokeSpecialAttack = data.stats[3].base_stat;
-  pokeSpecialDefense = data.stats[4].base_stat;
-  pokeSpeed = data.stats[5].base_stat;
+const app = (value) => {
+  URLPOKEMON = `https://pokeapi.co/api/v2/pokemon/${value}`;
 
-  console.log(
-    pokeName,
-    pokeNumber,
-    pokeImage,
-    pokeShiny,
-    pokeType,
-    pokeTypeSecond,
-    pokeAbility,
-    pokeAbilitySecond,
-    pokeWeigth,
-    pokeHp,
-    pokeAttack,
-    pokeDefense,
-    pokeSpecialAttack,
-    pokeDefense,
-    pokeSpeed
-  );
-});
+  $.get(URLPOKEMON, function (data) {
+    pokeName = data.species.name;
+    pokeNumber = data.id;
+    pokeImage = data.sprites.front_default;
+    pokeShiny = data.sprites.front_shiny;
+    pokeType = data.types[0].type.name;
+    if (data.types.length == 2) {
+      pokeTypeSecond = data.types[1].type.name;
+    }
+    pokeAbility = data.abilities[0].ability.name;
+    if (data.abilities.length == 2) {
+      pokeAbilitySecond = data.abilities[1].ability.name;
+    }
+    pokeWeigth = data.weight;
+    pokeHp = data.stats[0].base_stat;
+    pokeAttack = data.stats[1].base_stat;
+    pokeDefense = data.stats[2].base_stat;
+    pokeSpecialAttack = data.stats[3].base_stat;
+    pokeSpecialDefense = data.stats[4].base_stat;
+    pokeSpeed = data.stats[5].base_stat;
+
+    $("#pokeName").text(pokeName);
+    $("#pokeNumber").text(pokeNumber);
+    $("#pokeImage").attr("src", pokeImage);
+    $("#pokeImageShiny").attr("src", pokeShiny);
+    $("#pokeType").text(pokeType);
+    $("#pokeTypeSecond").text(pokeTypeSecond);
+    $("#pokeAbility").text(pokeAbility);
+    $("#pokeAbilitySecond").text(pokeAbilitySecond);
+    $("#pokeWeigth").text(pokeWeigth);
+    $("#pokeHp").text(pokeHp);
+    $("#pokeAttack").text(pokeAttack);
+    $("#pokeDefense").text(pokeDefense);
+    $("#pokeSpecialAttack").text(pokeSpecialAttack);
+    $("#pokeSpecialDefense").text(pokeSpecialDefense);
+    $("#pokeSpeed").text(pokeSpeed);
+  }).fail(() => {
+    alert("There is no such Pokémon");
+  });
+};
+
+newInput();
