@@ -32,6 +32,10 @@ const newInput = () => {
   });
 };
 
+const capitalize = (string) => {
+  return string[0].toUpperCase() + string.slice(1);
+};
+
 const app = (value) => {
   URLPOKEMON = `https://pokeapi.co/api/v2/pokemon/${value}`;
 
@@ -56,15 +60,25 @@ const app = (value) => {
     pokeSpecialDefense = data.stats[4].base_stat;
     pokeSpeed = data.stats[5].base_stat;
 
-    $("#pokeName").text(pokeName);
+    $("#pokeName").text(capitalize(pokeName));
+
     $("#pokeNumber").text(pokeNumber);
+
     $("#pokeImage").attr("src", pokeImage);
+
     $("#pokeImageShiny").attr("src", pokeShiny);
-    $("#pokeType").text(pokeType);
-    $("#pokeTypeSecond").text(pokeTypeSecond);
-    $("#pokeAbility").text(pokeAbility);
-    $("#pokeAbilitySecond").text(pokeAbilitySecond);
+
+    $("#pokeType").text(capitalize(pokeType));
+    if (pokeTypeSecond != undefined && pokeType != pokeTypeSecond) {
+      $("#pokeTypeSecond").text(capitalize(pokeTypeSecond));
+    }
+    $("#pokeAbility").text(capitalize(pokeAbility));
+    if (pokeAbilitySecond != undefined) {
+      $("#pokeAbilitySecond").text(capitalize(pokeAbilitySecond));
+    }
+
     $("#pokeWeigth").text(pokeWeigth);
+
     $("#pokeHp").text(pokeHp);
     $("#pokeAttack").text(pokeAttack);
     $("#pokeDefense").text(pokeDefense);

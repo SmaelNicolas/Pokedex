@@ -50,3 +50,7 @@ body {
   text-align: center;
   background-color: #ffcb05;
   display: none; }
+  .pokeInfo .pokeTitle {
+    color: #2a75bb;
+    font-family: PokemonSolid;
+    letter-spacing: 3px; }
