@@ -1,10 +1,10 @@
 @font-face {
   font-family: PokemonSolid;
-  src: url(../.././styles/font/PokemonSolid.ttf); }
+  src: url(../.././styles/fonts/PokemonSolid.ttf); }
 
 @font-face {
   font-family: PokemonHollow;
-  src: url(../.././styles/font/PokemonHollow.ttf); }
+  src: url(../.././styles/fonts/PokemonHollow.ttf); }
 
 * {
   padding: 0;
